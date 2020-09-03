@@ -1,0 +1,74 @@
+<h3>Create Employee</h3>
+<div class="row">
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4">
+        <div [hidden]="submitted" style="width: 400px;">
+            <form [formGroup]="employeesaveform" #saveemployee (ngSubmit)="saveEmployee(saveEmployee)">
+                <div class="form-group">
+                    <label for="name">Employee Name</label>
+                    <input type="text" class="form-control" formControlName="name" data-toggle="tooltip" data-placement="right" title="Enter  Name">
+                    <div class="alert alert-danger" *ngIf="(Name.touched) && (Name.invalid)" style="margin-top: 5px;">
+                        <span *ngIf="Name.errors.required"> Name is Required</span>
+                        <span *ngIf="Name.errors.minlength">   
+                        MinLength Error   
+                    </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="name"> Email</label>
+                    <input type="text" class="form-control" formControlName="email" data-toggle="tooltip" data-placement="right" title="Enter  Email">
+                    <div class="alert alert-danger" *ngIf="(Email.touched) && (Email.invalid)" style="margin-top: 5px;">
+                        <span *ngIf="Email.errors.required"> Email is Required</span>
+                        <span *ngIf="Email.errors.email">   
+                        Invalid Email Format   
+                    </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="name"> Phone</label>
+                    <input type="text" class="form-control" formControlName="phone" data-toggle="tooltip" data-placement="right" title="Enter  number">
+                    <div class="alert alert-danger" *ngIf="(Phone.touched) && (Phone.invalid)" style="margin-top: 5px;">
+                        <span *ngIf="Phone.errors.required">  Phone is Required</span>
+                        <span *ngIf="Phone.errors.Phone">   
+                        Invalid Phone Format   
+                    </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="name"> Designation</label>
+                    <input type="text" class="form-control" formControlName="designation" data-toggle="tooltip" data-placement="right" title="Enter  Designation">
+                    <div class="alert alert-danger" *ngIf="(Designation.touched) && (Designation.invalid)" style="margin-top: 5px;">
+                        <span *ngIf="Designation.errors.required"> Designation is Required</span>
+                        <span *ngIf="Designation.errors.designation ">   
+                        Invalid Designation Format   
+                    </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="name"> Salary</label>
+                    <input type="text" class="form-control" formControlName="salary" data-toggle="tooltip" data-placement="right" title="Enter  Salary">
+                    <div class="alert alert-danger" *ngIf="(Salary.touched) && (Salary.invalid)" style="margin-top: 5px;">
+                        <span *ngIf="Salary.errors.required"> Salary is Required</span>
+                        <span *ngIf="Salary.errors.Salary">   
+                        Invalid Salary Format   
+                    </span>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-success">Submit</button>
+            </form>
+        </div>
+    </div>
+    <div class="col-sm-4"></div>
+</div>
+<div class="row">
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4">
+        <div [hidden]="!submitted">
+            <h4> Added SuccessFully!</h4>
+            <button (click)="addEmployeeForm()" class='btn btn-primary'>Add More </button>
+        </div>
+    </div>
+    <div class="col-sm-4"></div>
+</div>
